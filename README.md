@@ -1,14 +1,13 @@
-# Welcome to your CDK TypeScript project!
+# Cust S3 Bucket for cdk.Pipelines
 
-This is a blank project for TypeScript development with CDK.
+At current the default policy is set to Retain these buckets which can lead to customers having a number of Orphaned S3 buckets across their accounts.
+This can be resolved by creating a custom construct to be used within your pipeline declaration which has a retention policy set to Delete.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+The Retain was set up as Default based on customer need, they were having issues with the deletion policies see [here](https://github.com/aws/aws-cdk/pull/1273/files#diff-97a6344bb43117c16441333d96eede412c2c7f7df034f88bbebb90b151eca42dR438)
 
-## Useful commands
+An example of how to integrate into `cdk.pipelines` is provided
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+## Notes about the example
+
+- the github token has been stored in Secrets Manager
+- any s3 buckets created by this example will now be automatically deleted
