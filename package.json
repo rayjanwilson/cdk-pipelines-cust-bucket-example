@@ -8,7 +8,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "deploy": "npx cdk deploy --require-approval never",
+    "deploy": "npm run build && npx cdk deploy --require-approval never",
     "upgrade": "npx npm-check-updates -u",
     "cdk": "cdk"
   },
@@ -29,6 +29,7 @@
     "@aws-cdk/aws-codepipeline-actions": "^1.114.0",
     "@aws-cdk/aws-lambda": "^1.114.0",
     "@aws-cdk/aws-lambda-nodejs": "^1.114.0",
+    "@aws-cdk/aws-logs": "^1.114.0",
     "@aws-cdk/aws-s3": "^1.114.0",
     "@aws-cdk/core": "1.114.0",
     "@aws-cdk/pipelines": "^1.114.0",

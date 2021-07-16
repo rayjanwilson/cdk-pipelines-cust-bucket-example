@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
-import { CdkPipelinesCustBucketExampleStack } from '../lib/cdk-pipelines-cust-bucket-example-stack';
+import { PipelinesStack } from '../lib/pipelines-stack';
+
+const github = {
+  owner: "rayjanwilson",
+  repo: "cdk-pipelines-cust-bucket-example",
+  branch: "master",
+};
 
 const app = new cdk.App();
-new CdkPipelinesCustBucketExampleStack(app, 'CdkPipelinesCustBucketExampleStack');
+new PipelinesStack(app, 'CdkPipelinesCustBucketExampleStack', {github});
